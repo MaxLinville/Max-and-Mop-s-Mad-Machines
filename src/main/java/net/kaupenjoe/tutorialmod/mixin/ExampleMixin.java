@@ -1,6 +1,6 @@
-package net.max.tutorialmod.mixin;
+package net.kaupenjoe.tutorialmod.mixin;
 
-import net.max.tutorialmod.TutorialMod;
+import net.kaupenjoe.tutorialmod.TutorialMod;
 import net.minecraft.client.gui.screen.TitleScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

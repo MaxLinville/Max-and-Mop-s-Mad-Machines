@@ -6,7 +6,7 @@
   "name": "Tutorial Mod",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
-    "Max"
+    "Kaupenjoe"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -19,10 +19,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.max.tutorialmod.TutorialMod"
+      "net.kaupenjoe.tutorialmod.TutorialMod"
     ],
     "client": [
-      "net.max.tutorialmod.TutorialModClient"
+      "net.kaupenjoe.tutorialmod.TutorialModClient"
     ]
   },
   "mixins": [
@@ -30,8 +30,8 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.14.9",
-    "fabric-api": "*",
+    "fabricloader": ">=0.14.6",
+    "fabric": "*",
     "minecraft": "~1.19",
     "java": ">=17"
   },
