@@ -1,12 +1,13 @@
 {
   "schemaVersion": 1,
-  "id": "tutorialmod",
+  "id": "madmachines",
   "version": "${version}",
 
-  "name": "Tutorial Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Max and Mop's Mad Machines",
+  "description": "A bunch of random end game stuff for there to be more to do in Minecraft.",
   "authors": [
-    "Kaupenjoe"
+    "MoopleMax",
+    "Fotoromop"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -19,14 +20,14 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.kaupenjoe.tutorialmod.TutorialMod"
+      "net.mooplemax.madmachines.MadMachines"
     ],
     "client": [
-      "net.kaupenjoe.tutorialmod.TutorialModClient"
+      "net.mooplemax.madmachines.MadMachinesClient"
     ]
   },
   "mixins": [
-    "tutorialmod.mixins.json"
+    "madmachines.mixins.json"
   ],
 
   "depends": {
