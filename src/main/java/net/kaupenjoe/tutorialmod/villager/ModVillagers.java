@@ -19,15 +19,6 @@ import net.minecraft.village.VillagerProfession;
 import net.minecraft.world.poi.PointOfInterestType;
 
 public class ModVillagers {
-    public static final PointOfInterestType JUMPY_POI = registerPOI("jumpy_poi", ModBlocks.JUMPY_BLOCK);
-    public static final VillagerProfession JUMP_MASTER = registerProfession("jumpmaster",
-            RegistryKey.of(Registry.POINT_OF_INTEREST_TYPE_KEY, new Identifier(TutorialMod.MOD_ID, "jumpy_poi")));
-
-    public static VillagerProfession registerProfession(String name, RegistryKey<PointOfInterestType> type) {
-        return Registry.register(Registry.VILLAGER_PROFESSION, new Identifier(TutorialMod.MOD_ID, name),
-                VillagerProfessionBuilder.create().id(new Identifier(TutorialMod.MOD_ID, name)).workstation(type)
-                        .workSound(SoundEvents.ENTITY_VILLAGER_WORK_ARMORER).build());
-    }
 
     public static PointOfInterestType registerPOI(String name, Block block) {
         return PointOfInterestHelper.register(new Identifier(TutorialMod.MOD_ID, name),
@@ -39,13 +30,6 @@ public class ModVillagers {
     }
 
     public static void registerTrades() {
-        TradeOfferHelper.registerVillagerOffers(JUMP_MASTER,1,
-                factories -> {
-                    factories.add(((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 3),
-                            new ItemStack(ModItems.EGGPLANT, 5),
-                            6, 2, 0.02f
-                    )));
-                });
+
     }
 }

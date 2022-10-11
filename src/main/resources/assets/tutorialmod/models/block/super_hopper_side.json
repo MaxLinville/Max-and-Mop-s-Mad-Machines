@@ -1,10 +1,10 @@
 {
   "ambientocclusion": false,
   "textures": {
-    "particle": "minecraft:block/hopper_outside",
-    "top": "minecraft:block/hopper_top",
-    "side": "minecraft:block/hopper_outside",
-    "inside": "minecraft:block/hopper_inside"
+    "particle": "tutorialmod:block/super_hopper_outside",
+    "top": "tutorialmod:block/super_hopper_top",
+    "side": "tutorialmod:block/super_hopper_outside",
+    "inside": "tutorialmod:block/super_hopper_inside"
   },
   "elements": [
     {   "from": [ 0, 10, 0 ],

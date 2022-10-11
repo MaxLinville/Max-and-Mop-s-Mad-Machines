@@ -25,35 +25,6 @@ public class ModLootTableModifiers {
 
 
     public static void modifyLootTables() {
-        LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
-            if(GRASS_BLOCK_ID.equals(id)) {
-                LootPool.Builder poolBuilder = LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(0.35f)) // Drops 35% of the time
-                        .with(ItemEntry.builder(ModItems.EGGPLANT_SEEDS))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 2.0f)).build());
-                tableBuilder.pool(poolBuilder.build());
-            }
 
-            if(IGLOO_STRUCTURE_CHEST_ID.equals(id)) {
-                LootPool.Builder poolBuilder = LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(RandomChanceLootCondition.builder(1f)) // Drops 100% of the time
-                        .with(ItemEntry.builder(ModItems.EIGHT_BALL))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
-                tableBuilder.pool(poolBuilder.build());
-            }
-
-            if(CREEPER_ID.equals(id)) {
-                LootPool.Builder poolBuilder = LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(EntityPropertiesLootCondition.builder(LootContext.EntityTarget.KILLER,
-                                new EntityPredicate.Builder().equipment(EntityEquipmentPredicate.Builder.create()
-                                        .mainhand(ItemPredicate.Builder.create().items(Items.GOLDEN_SWORD).build()).build()).build()))
-                        .with(ItemEntry.builder(ModItems.EGGPLANT))
-                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
-                tableBuilder.pool(poolBuilder.build());
-            }
-        });
     }
 }

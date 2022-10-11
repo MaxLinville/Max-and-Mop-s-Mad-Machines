@@ -3,7 +3,6 @@
  */
 package net.kaupenjoe.tutorialmod.block.custom;
 
-import net.kaupenjoe.tutorialmod.block.entity.GemInfusingBlockEntity;
 import net.kaupenjoe.tutorialmod.block.entity.ModBlockEntities;
 import net.kaupenjoe.tutorialmod.block.entity.SuperHopperBlockEntity;
 import net.minecraft.block.AbstractBlock;
@@ -16,7 +15,6 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.entity.Hopper;
-import net.minecraft.block.entity.HopperBlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;

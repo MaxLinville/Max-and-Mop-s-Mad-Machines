@@ -10,14 +10,9 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class ModBlockEntities {
-    public static BlockEntityType<GemInfusingBlockEntity> GEM_INFUSING_STATION;
     public static BlockEntityType<SuperHopperBlockEntity> SUPER_HOPPER;
 
     public static void registerBlockEntities() {
-        GEM_INFUSING_STATION = Registry.register(Registry.BLOCK_ENTITY_TYPE,
-                new Identifier(TutorialMod.MOD_ID, "gem_infusing_station"),
-                FabricBlockEntityTypeBuilder.create(GemInfusingBlockEntity::new,
-                        ModBlocks.GEM_INFUSING_STATION).build(null));
 
         SUPER_HOPPER = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 new Identifier(TutorialMod.MOD_ID, "super_hopper"),

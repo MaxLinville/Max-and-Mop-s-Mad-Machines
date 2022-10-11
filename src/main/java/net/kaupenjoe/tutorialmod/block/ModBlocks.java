@@ -15,43 +15,12 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 
 public class ModBlocks {
-    public static final Block TANZANITE_BLOCK = registerBlock("tanzanite_block",
-            new Block(FabricBlockSettings.of(Material.METAL).strength(4f).requiresTool()), ModItemGroup.TANZANITE);
-
-    public static final Block TANZANITE_ORE = registerBlock("tanzanite_ore",
-            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(4f).requiresTool(),
-                    UniformIntProvider.create(3, 7)), ModItemGroup.TANZANITE);
-    public static final Block DEEPSLATE_TANZANITE_ORE = registerBlock("deepslate_tanzanite_ore",
-            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(4f).requiresTool(),
-                    UniformIntProvider.create(3, 7)), ModItemGroup.TANZANITE);
-    public static final Block NETHERRACK_TANZANITE_ORE = registerBlock("netherrack_tanzanite_ore",
-            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(4.0f).requiresTool(),
-                    UniformIntProvider.create(3, 7)), ModItemGroup.TANZANITE);
-    public static final Block ENDSTONE_TANZANITE_ORE = registerBlock("endstone_tanzanite_ore",
-            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(4.0f).requiresTool(),
-                    UniformIntProvider.create(3, 7)), ModItemGroup.TANZANITE);
-
-    public static final Block JUMPY_BLOCK = registerBlock("jumpy_block",
-            new JumpyBlock(FabricBlockSettings.of(Material.METAL).strength(4f).requiresTool()), ModItemGroup.TANZANITE);
-
-    public static final Block TANZANITE_LAMP = registerBlock("tanzanite_lamp",
-            new TanzaniteLampBlock(FabricBlockSettings.of(Material.METAL).strength(4f).requiresTool()
-                    .luminance(state -> state.get(TanzaniteLampBlock.LIT) ? 15 : 0)), ModItemGroup.TANZANITE);
-
-    public static final Block EGGPLANT_CROP = registerBlockWithoutItem("eggplant_crop",
-            new EggplantCropBlock(FabricBlockSettings.copy(Blocks.WHEAT)));
-
-    public static final Block GEM_INFUSING_STATION = registerBlock("gem_infusing_station",
-            new GemInfusingStationBlock(FabricBlockSettings.of(Material.METAL)
-                    .strength(4f).requiresTool().nonOpaque()), ModItemGroup.TANZANITE);
-
-    /*public static final Block SUPER_HOPPER = registerBlock("super_hopper",
-            new SuperHopperBlock(FabricBlockSettings.of(Material.METAL)
-                    .strength(4f).requiresTool().nonOpaque()), ModItemGroup.TANZANITE);*/
+    /*public static final Block TANZANITE_BLOCK = registerBlock("tanzanite_block",
+            new Block(FabricBlockSettings.of(Material.METAL).strength(4f).requiresTool()), ModItemGroup.TANZANITE);*/
 
     public static final Block SUPER_HOPPER = registerBlock("super_hopper",
             new SuperHopperBlock(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
-                    .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.TANZANITE);
+                    .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);
     private static Block registerBlockWithoutItem(String name, Block block) {
         return Registry.register(Registry.BLOCK, new Identifier(TutorialMod.MOD_ID, name), block);
     }
