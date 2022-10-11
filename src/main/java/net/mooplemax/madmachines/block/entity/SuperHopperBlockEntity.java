@@ -47,11 +47,12 @@ public class SuperHopperBlockEntity
 
     private int actualCooldown = 4; //Changes how many ticks between item transfers
     private int transferStackSize = 3; //Changes how many items are extracted or inserted per transfer
-    private int inventorySize = 12; //Sets amount of functional item slots
 
-    private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(inventorySize, ItemStack.EMPTY);
+    private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(12, ItemStack.EMPTY);
     private int transferCooldown = -1;
     private long lastTickTime;
+
+
 
     protected final PropertyDelegate propertyDelegate = new PropertyDelegate(){
 
@@ -100,15 +101,11 @@ public class SuperHopperBlockEntity
         this.actualCooldown = ticks;
     }
 
-    public void setItemSlots(int slots) {
-        this.inventorySize = slots;
-        inventory = DefaultedList.ofSize(this.inventorySize, ItemStack.EMPTY);
-    }
 
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
-        this.inventory = DefaultedList.ofSize(this.size(), ItemStack.EMPTY);
+        this.inventory = DefaultedList.ofSize(this.inventory.size(), ItemStack.EMPTY);
         if (!this.deserializeLootTable(nbt)) {
             Inventories.readNbt(nbt, this.inventory);
         }
@@ -244,15 +241,17 @@ public class SuperHopperBlockEntity
     }
 
     private static boolean extract(Hopper hopper, Inventory inventory, int slot, Direction side, int amount) {
-        ItemStack itemStack = inventory.getStack(slot);
-        if (!itemStack.isEmpty() && SuperHopperBlockEntity.canExtract(inventory, itemStack, slot, side)) {
-            ItemStack itemStack2 = itemStack.copy();
-            ItemStack itemStack3 = SuperHopperBlockEntity.transfer(inventory, hopper, inventory.removeStack(slot, amount), null); //item extraction quantity
-            if (itemStack3.isEmpty()) {
-                inventory.markDirty();
-                return true;
+        if (!(slot >= 10)) {
+            ItemStack itemStack = inventory.getStack(slot);
+            if (!itemStack.isEmpty() && SuperHopperBlockEntity.canExtract(inventory, itemStack, slot, side)) {
+                ItemStack itemStack2 = itemStack.copy();
+                ItemStack itemStack3 = SuperHopperBlockEntity.transfer(inventory, hopper, inventory.removeStack(slot, amount), null); //item extraction quantity
+                if (itemStack3.isEmpty()) {
+                    inventory.markDirty();
+                    return true;
+                }
+                inventory.setStack(slot, itemStack2);
             }
-            inventory.setStack(slot, itemStack2);
         }
         return false;
     }
@@ -286,6 +285,13 @@ public class SuperHopperBlockEntity
         return stack;
     }
 
+    @Override
+    public boolean isValid(int slot, ItemStack stack) {
+        if (slot >= 10)
+            return false;
+        return true;
+    }
+
     private static boolean canInsert(Inventory inventory, ItemStack stack, int slot, @Nullable Direction side) {
         if (!inventory.isValid(slot, stack)) {
             return false;
@@ -294,6 +300,9 @@ public class SuperHopperBlockEntity
     }
 
     private static boolean canExtract(Inventory inv, ItemStack stack, int slot, Direction facing) {
+        if (!inv.isValid(slot, stack)) {
+            return false;
+        }
         return !(inv instanceof SidedInventory) || ((SidedInventory)inv).canExtract(slot, stack, facing);
     }
 
