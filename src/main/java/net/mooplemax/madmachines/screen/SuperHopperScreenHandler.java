@@ -18,23 +18,20 @@ public class SuperHopperScreenHandler
     private final PropertyDelegate propertyDelegate;
 
     public SuperHopperScreenHandler(int syncId, PlayerInventory inventory) {
-        this(syncId, inventory, new SimpleInventory(12), new ArrayPropertyDelegate(2));
+        this(syncId, inventory, new SimpleInventory(14), new ArrayPropertyDelegate(0));
     }
 
     public SuperHopperScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate delegate) {
         super(ModScreenHandlers.SUPER_HOPPER_SCREEN_HANDLER, syncId);
-        checkSize(inventory, 12);
+        checkSize(inventory, 14);
         this.inventory = inventory;
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = delegate;
 
-        this.addSlot(new SpeedMultiplierSlot(inventory, 10, 26, 25));
-        this.addSlot(new ItemMultiplierSlot(inventory, 11, 26, 43));
-
         int j = 0;
         for (j = 0; j < 2; ++j) {
-            for (int k = 0; k < 5; ++k) {
-                this.addSlot(new Slot(inventory, k+j*5, 62 + k * 18, 25+j*18));
+            for (int k = 0; k < 7; ++k) {
+                this.addSlot(new Slot(inventory, k+j*7, 26 + k * 18, 25+j*18));
             }
         }
 
@@ -85,42 +82,6 @@ public class SuperHopperScreenHandler
     private void addPlayerHotbar(PlayerInventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
-        }
-    }
-
-    private static class SpeedMultiplierSlot extends Slot {
-        public SpeedMultiplierSlot(Inventory inventory, int i, int j, int k) {
-            super(inventory, i, j, k);
-        }
-
-        public boolean canInsert(ItemStack stack) {
-            return matches(stack);
-        }
-
-        public static boolean matches(ItemStack stack) {
-            return stack.isOf(Items.COAL);
-        }
-
-        public int getMaxItemCount() {
-            return 1;
-        }
-    }
-
-    private static class ItemMultiplierSlot extends Slot {
-        public ItemMultiplierSlot(Inventory inventory, int i, int j, int k) {
-            super(inventory, i, j, k);
-        }
-
-        public boolean canInsert(ItemStack stack) {
-            return matches(stack);
-        }
-
-        public static boolean matches(ItemStack stack) {
-            return stack.isOf(Items.BLAZE_POWDER);
-        }
-
-        public int getMaxItemCount() {
-            return 1;
         }
     }
 }

@@ -20,6 +20,49 @@ public class ModBlocks {
     public static final Block SUPER_HOPPER = registerBlock("super_hopper",
             new SuperHopperBlock(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
                     .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);
+    public static final Block SUPER_HOPPER_TIER_2 = registerBlock("super_hopper_t2",
+            new SuperHopperT2Block(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
+                    .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);
+    public static final Block SUPER_HOPPER_TIER_3 = registerBlock("super_hopper_t3",
+            new SuperHopperT3Block(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
+                    .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);
+    public static final Block SUPER_HOPPER_TIER_4 = registerBlock("super_hopper_t4",
+            new SuperHopperT4Block(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
+                    .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);
+    public static final Block SUPER_HOPPER_TIER_5 = registerBlock("super_hopper_t5",
+            new SuperHopperT5Block(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
+                    .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);
+    public static final Block SUPER_HOPPER_TIER_6 = registerBlock("super_hopper_t6",
+            new SuperHopperT6Block(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
+                    .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);
+    public static final Block SUPER_HOPPER_TIER_7 = registerBlock("super_hopper_t7",
+            new SuperHopperT7Block(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
+                    .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);
+    public static final Block SUPER_HOPPER_TIER_8 = registerBlock("super_hopper_t8",
+            new SuperHopperT8Block(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
+                    .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);
+    public static final Block SUPER_HOPPER_TIER_9 = registerBlock("super_hopper_t9",
+            new SuperHopperT9Block(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
+                    .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);
+    public static final Block SUPER_HOPPER_TIER_10 = registerBlock("super_hopper_t10",
+            new SuperHopperT10Block(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
+                    .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);
+    public static final Block SUPER_HOPPER_TIER_11 = registerBlock("super_hopper_t11",
+            new SuperHopperT11Block(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
+                    .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);
+    public static final Block SUPER_HOPPER_TIER_12 = registerBlock("super_hopper_t12",
+            new SuperHopperT12Block(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
+                    .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);
+    public static final Block SUPER_HOPPER_TIER_13 = registerBlock("super_hopper_t13",
+            new SuperHopperT13Block(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
+                    .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);
+    public static final Block SUPER_HOPPER_TIER_14 = registerBlock("super_hopper_t14",
+            new SuperHopperT14Block(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
+                    .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);
+    public static final Block SUPER_HOPPER_TIER_15 = registerBlock("super_hopper_t15",
+            new SuperHopperT15Block(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
+                    .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);
+
     private static Block registerBlockWithoutItem(String name, Block block) {
         return Registry.register(Registry.BLOCK, new Identifier(MadMachines.MOD_ID, name), block);
     }

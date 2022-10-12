@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "madmachines:block/super_hopper"
+    },
+    "facing=east": {
+      "model": "madmachines:block/super_hopper_side",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "madmachines:block/super_hopper_side"
+    },
+    "facing=south": {
+      "model": "madmachines:block/super_hopper_side",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "madmachines:block/super_hopper_side",
+      "y": 270
+    }
+  }
+}

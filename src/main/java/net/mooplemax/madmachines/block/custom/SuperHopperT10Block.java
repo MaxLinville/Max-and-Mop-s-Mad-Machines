@@ -4,7 +4,7 @@
 package net.mooplemax.madmachines.block.custom;
 
 import net.mooplemax.madmachines.block.entity.ModBlockEntities;
-import net.mooplemax.madmachines.block.entity.SuperHopperBlockEntity;
+import net.mooplemax.madmachines.block.entity.SuperHopperT10BlockEntity;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
@@ -43,7 +43,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class SuperHopperBlock
+public class SuperHopperT10Block
         extends BlockWithEntity {
     public static final DirectionProperty FACING = Properties.HOPPER_FACING;
     public static final BooleanProperty ENABLED = Properties.ENABLED;
@@ -62,7 +62,7 @@ public class SuperHopperBlock
     private static final VoxelShape SOUTH_RAYCAST_SHAPE = VoxelShapes.union(Hopper.INSIDE_SHAPE, Block.createCuboidShape(6.0, 8.0, 12.0, 10.0, 10.0, 16.0));
     private static final VoxelShape WEST_RAYCAST_SHAPE = VoxelShapes.union(Hopper.INSIDE_SHAPE, Block.createCuboidShape(0.0, 8.0, 6.0, 4.0, 10.0, 10.0));
 
-    public SuperHopperBlock(AbstractBlock.Settings settings) {
+    public SuperHopperT10Block(AbstractBlock.Settings settings) {
         super(settings);
         this.setDefaultState((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.DOWN)).with(ENABLED, true));
     }
@@ -119,20 +119,20 @@ public class SuperHopperBlock
 
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new SuperHopperBlockEntity(pos, state);
+        return new SuperHopperT10BlockEntity(pos, state);
     }
 
     @Override
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return world.isClient ? null : SuperHopperT3Block.checkType(type, ModBlockEntities.SUPER_HOPPER, SuperHopperBlockEntity::serverTick);
+        return world.isClient ? null : SuperHopperT3Block.checkType(type, ModBlockEntities.SUPER_HOPPER_T10, SuperHopperT10BlockEntity::serverTick);
     }
 
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
         BlockEntity blockEntity;
-        if (itemStack.hasCustomName() && (blockEntity = world.getBlockEntity(pos)) instanceof SuperHopperBlockEntity) {
-            ((SuperHopperBlockEntity)blockEntity).setCustomName(itemStack.getName());
+        if (itemStack.hasCustomName() && (blockEntity = world.getBlockEntity(pos)) instanceof SuperHopperT10BlockEntity) {
+            ((SuperHopperT10BlockEntity)blockEntity).setCustomName(itemStack.getName());
         }
     }
 
@@ -150,8 +150,8 @@ public class SuperHopperBlock
             return ActionResult.SUCCESS;
         }
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof SuperHopperBlockEntity) {
-            player.openHandledScreen((SuperHopperBlockEntity)blockEntity);
+        if (blockEntity instanceof SuperHopperT10BlockEntity) {
+            player.openHandledScreen((SuperHopperT10BlockEntity)blockEntity);
             player.incrementStat(Stats.INSPECT_HOPPER);
         }
         return ActionResult.CONSUME;
@@ -176,8 +176,8 @@ public class SuperHopperBlock
             return;
         }
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof SuperHopperBlockEntity) {
-            ItemScatterer.spawn(world, pos, (Inventory)((SuperHopperBlockEntity)blockEntity));
+        if (blockEntity instanceof SuperHopperT10BlockEntity) {
+            ItemScatterer.spawn(world, pos, (Inventory)((SuperHopperT10BlockEntity)blockEntity));
             world.updateComparators(pos, this);
         }
         super.onStateReplaced(state, world, pos, newState, moved);
@@ -216,8 +216,8 @@ public class SuperHopperBlock
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof SuperHopperBlockEntity) {
-            SuperHopperBlockEntity.onEntityCollided(world, pos, state, entity, (SuperHopperBlockEntity)blockEntity);
+        if (blockEntity instanceof SuperHopperT10BlockEntity) {
+            SuperHopperT10BlockEntity.onEntityCollided(world, pos, state, entity, (SuperHopperT10BlockEntity)blockEntity);
         }
     }
 

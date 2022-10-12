@@ -1,14 +1,12 @@
-/*
- * Decompiled with CFR 0.1.1 (FabricMC 57d88659).
- */
 package net.mooplemax.madmachines.block.entity;
+
 
 import java.util.List;
 import java.util.function.BooleanSupplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import net.mooplemax.madmachines.block.custom.SuperHopperBlock;
+import net.mooplemax.madmachines.block.custom.SuperHopperT15Block;
 import net.mooplemax.madmachines.screen.SuperHopperScreenHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -36,14 +34,14 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-public class SuperHopperBlockEntity
+public class SuperHopperT15BlockEntity
         extends LootableContainerBlockEntity
         implements Hopper {
     public static final int field_31341 = 8;
     public static final int field_31342 = 10;
 
-    private int actualCooldown = 8; //Changes how many ticks between item transfers
-    private int transferStackSize = 1; //Changes how many items are extracted or inserted per transfer
+    private int actualCooldown = 1; //Changes how many ticks between item transfers
+    private int transferStackSize = 64; //Changes how many items are extracted or inserted per transfer
 
     private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(14, ItemStack.EMPTY);
     private int transferCooldown = -1;
@@ -69,8 +67,8 @@ public class SuperHopperBlockEntity
         }
     };
 
-    public SuperHopperBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.SUPER_HOPPER, pos, state);
+    public SuperHopperT15BlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.SUPER_HOPPER_T15, pos, state);
     }
 
     @Override
@@ -114,33 +112,33 @@ public class SuperHopperBlockEntity
 
     @Override
     protected Text getContainerName() {
-        return Text.translatable("container.super_hopper");
+        return Text.translatable("container.super_hopper_t15");
     }
 
-    public static void serverTick(World world, BlockPos pos, BlockState state, SuperHopperBlockEntity blockEntity) {
+    public static void serverTick(World world, BlockPos pos, BlockState state, SuperHopperT15BlockEntity blockEntity) {
         --blockEntity.transferCooldown;
         blockEntity.lastTickTime = world.getTime();
         if (!blockEntity.needsCooldown()) {
             blockEntity.setTransferCooldown(0);
-            SuperHopperBlockEntity.insertAndExtract(world, pos, state, blockEntity, () -> SuperHopperBlockEntity.extract(world, blockEntity, blockEntity.transferStackSize));
+            SuperHopperT15BlockEntity.insertAndExtract(world, pos, state, blockEntity, () -> SuperHopperT15BlockEntity.extract(world, blockEntity, blockEntity.transferStackSize));
         }
     }
 
-    private static boolean insertAndExtract(World world, BlockPos pos, BlockState state, SuperHopperBlockEntity blockEntity, BooleanSupplier booleanSupplier) {
+    private static boolean insertAndExtract(World world, BlockPos pos, BlockState state, SuperHopperT15BlockEntity blockEntity, BooleanSupplier booleanSupplier) {
         if (world.isClient) {
             return false;
         }
-        if (!blockEntity.needsCooldown() && state.get(SuperHopperBlock.ENABLED).booleanValue()) {
+        if (!blockEntity.needsCooldown() && state.get(SuperHopperT15Block.ENABLED).booleanValue()) {
             boolean bl = false;
             if (!blockEntity.isEmpty()) {
-                bl = SuperHopperBlockEntity.insert(world, pos, state, blockEntity, blockEntity.transferStackSize);
+                bl = SuperHopperT15BlockEntity.insert(world, pos, state, blockEntity, blockEntity.transferStackSize);
             }
             if (!blockEntity.isFull()) {
                 bl |= booleanSupplier.getAsBoolean();
             }
             if (bl) {
                 blockEntity.setTransferCooldown(blockEntity.actualCooldown); //also trasnfer cooldown
-                SuperHopperBlockEntity.markDirty(world, pos, state);
+                SuperHopperT15BlockEntity.markDirty(world, pos, state);
                 return true;
             }
         }
@@ -156,18 +154,18 @@ public class SuperHopperBlockEntity
     }
 
     private static boolean insert(World world, BlockPos pos, BlockState state, Inventory inventory, int amount) {
-        Inventory inventory2 = SuperHopperBlockEntity.getOutputInventory(world, pos, state);
+        Inventory inventory2 = SuperHopperT15BlockEntity.getOutputInventory(world, pos, state);
         if (inventory2 == null) {
             return false;
         }
-        Direction direction = state.get(SuperHopperBlock.FACING).getOpposite();
-        if (SuperHopperBlockEntity.isInventoryFull(inventory2, direction)) {
+        Direction direction = state.get(SuperHopperT15Block.FACING).getOpposite();
+        if (SuperHopperT15BlockEntity.isInventoryFull(inventory2, direction)) {
             return false;
         }
         for (int i = 0; i < inventory.size(); ++i) {
             if (inventory.getStack(i).isEmpty()) continue;
             ItemStack itemStack = inventory.getStack(i).copy();
-            ItemStack itemStack2 = SuperHopperBlockEntity.transfer(inventory, inventory2, inventory.removeStack(i, amount), direction); //item push quantity
+            ItemStack itemStack2 = SuperHopperT15BlockEntity.transfer(inventory, inventory2, inventory.removeStack(i, amount), direction); //item push quantity
             if (itemStack2.isEmpty()) {
                 inventory2.markDirty();
                 return true;
@@ -185,27 +183,27 @@ public class SuperHopperBlockEntity
     }
 
     private static boolean isInventoryFull(Inventory inventory, Direction direction) {
-         return SuperHopperBlockEntity.getAvailableSlots(inventory, direction).allMatch(slot -> {
+        return SuperHopperT15BlockEntity.getAvailableSlots(inventory, direction).allMatch(slot -> {
             ItemStack itemStack = inventory.getStack(slot);
             return itemStack.getCount() >= itemStack.getMaxCount();
         });
     }
 
     private static boolean isInventoryEmpty(Inventory inv, Direction facing) {
-         return SuperHopperBlockEntity.getAvailableSlots(inv, facing).allMatch(slot -> inv.getStack(slot).isEmpty());
+        return SuperHopperT15BlockEntity.getAvailableSlots(inv, facing).allMatch(slot -> inv.getStack(slot).isEmpty());
     }
 
     public static boolean extract(World world, Hopper hopper, int amount) {
-        Inventory inventory = SuperHopperBlockEntity.getInputInventory(world, hopper);
+        Inventory inventory = SuperHopperT15BlockEntity.getInputInventory(world, hopper);
         if (inventory != null) {
             Direction direction = Direction.DOWN;
-            if (SuperHopperBlockEntity.isInventoryEmpty(inventory, direction)) {
+            if (SuperHopperT15BlockEntity.isInventoryEmpty(inventory, direction)) {
                 return false;
             }
-             return SuperHopperBlockEntity.getAvailableSlots(inventory, direction).anyMatch(slot -> SuperHopperBlockEntity.extract(hopper, inventory, slot, direction, amount));
+            return SuperHopperT15BlockEntity.getAvailableSlots(inventory, direction).anyMatch(slot -> SuperHopperT15BlockEntity.extract(hopper, inventory, slot, direction, amount));
         }
-        for (ItemEntity itemEntity : SuperHopperBlockEntity.getInputItemEntities(world, hopper)) {
-            if (!SuperHopperBlockEntity.extract(hopper, itemEntity)) continue;
+        for (ItemEntity itemEntity : SuperHopperT15BlockEntity.getInputItemEntities(world, hopper)) {
+            if (!SuperHopperT15BlockEntity.extract(hopper, itemEntity)) continue;
             return true;
         }
         return false;
@@ -214,9 +212,9 @@ public class SuperHopperBlockEntity
     private static boolean extract(Hopper hopper, Inventory inventory, int slot, Direction side, int amount) {
         if (!(slot >= 10)) {
             ItemStack itemStack = inventory.getStack(slot);
-            if (!itemStack.isEmpty() && SuperHopperBlockEntity.canExtract(inventory, itemStack, slot, side)) {
+            if (!itemStack.isEmpty() && SuperHopperT15BlockEntity.canExtract(inventory, itemStack, slot, side)) {
                 ItemStack itemStack2 = itemStack.copy();
-                ItemStack itemStack3 = SuperHopperBlockEntity.transfer(inventory, hopper, inventory.removeStack(slot, amount), null); //item extraction quantity
+                ItemStack itemStack3 = SuperHopperT15BlockEntity.transfer(inventory, hopper, inventory.removeStack(slot, amount), null); //item extraction quantity
                 if (itemStack3.isEmpty()) {
                     inventory.markDirty();
                     return true;
@@ -230,7 +228,7 @@ public class SuperHopperBlockEntity
     public static boolean extract(Inventory inventory, ItemEntity itemEntity) {
         boolean bl = false;
         ItemStack itemStack = itemEntity.getStack().copy();
-        ItemStack itemStack2 = SuperHopperBlockEntity.transfer(null, inventory, itemStack, null);
+        ItemStack itemStack2 = SuperHopperT15BlockEntity.transfer(null, inventory, itemStack, null);
         if (itemStack2.isEmpty()) {
             bl = true;
             itemEntity.discard();
@@ -245,12 +243,12 @@ public class SuperHopperBlockEntity
             SidedInventory sidedInventory = (SidedInventory)to;
             int[] is = sidedInventory.getAvailableSlots(side);
             for (int i = 0; i < is.length && !stack.isEmpty(); ++i) {
-                stack = SuperHopperBlockEntity.transfer(from, to, stack, is[i], side);
+                stack = SuperHopperT15BlockEntity.transfer(from, to, stack, is[i], side);
             }
         } else {
             int j = to.size();
             for (int k = 0; k < j && !stack.isEmpty(); ++k) {
-                stack = SuperHopperBlockEntity.transfer(from, to, stack, k, side);
+                stack = SuperHopperT15BlockEntity.transfer(from, to, stack, k, side);
             }
         }
         return stack;
@@ -272,7 +270,7 @@ public class SuperHopperBlockEntity
 
     private static ItemStack transfer(@Nullable Inventory from, Inventory to, ItemStack stack, int slot, @Nullable Direction side) {
         ItemStack itemStack = to.getStack(slot);
-        if (SuperHopperBlockEntity.canInsert(to, stack, slot, side)) {
+        if (SuperHopperT15BlockEntity.canInsert(to, stack, slot, side)) {
             int j;
             boolean bl = false;
             boolean bl2 = to.isEmpty();
@@ -280,7 +278,7 @@ public class SuperHopperBlockEntity
                 to.setStack(slot, stack);
                 stack = ItemStack.EMPTY;
                 bl = true;
-            } else if (SuperHopperBlockEntity.canMergeItems(itemStack, stack)) {
+            } else if (SuperHopperT15BlockEntity.canMergeItems(itemStack, stack)) {
                 int i = stack.getMaxCount() - itemStack.getCount();
                 j = Math.min(stack.getCount(), i);
                 stack.decrement(j);
@@ -288,16 +286,16 @@ public class SuperHopperBlockEntity
                 boolean bl3 = bl = j > 0;
             }
             if (bl) {
-                SuperHopperBlockEntity SuperHopperBlockEntity;
-                if (bl2 && to  instanceof SuperHopperBlockEntity && !(SuperHopperBlockEntity = (SuperHopperBlockEntity)to).isDisabled()) {
+                SuperHopperT15BlockEntity superHopperT15BlockEntity;
+                if (bl2 && to  instanceof SuperHopperT15BlockEntity && !(superHopperT15BlockEntity = (SuperHopperT15BlockEntity)to).isDisabled()) {
                     j = 0;
-                    if (from instanceof SuperHopperBlockEntity) {
-                        SuperHopperBlockEntity SuperHopperBlockEntity2 = (SuperHopperBlockEntity)from;
-                        if (SuperHopperBlockEntity.lastTickTime >= SuperHopperBlockEntity2.lastTickTime) {
+                    if (from instanceof SuperHopperT15BlockEntity) {
+                        SuperHopperT15BlockEntity superHopperT2BlockEntity15 = (SuperHopperT15BlockEntity)from;
+                        if (superHopperT15BlockEntity.lastTickTime >= superHopperT2BlockEntity15.lastTickTime) {
                             j = 1;
                         }
                     }
-                    SuperHopperBlockEntity.setTransferCooldown(SuperHopperBlockEntity.actualCooldown - j); //Tick Speed
+                    superHopperT15BlockEntity.setTransferCooldown(superHopperT15BlockEntity.actualCooldown - j); //Tick Speed
                 }
                 to.markDirty();
             }
@@ -307,13 +305,13 @@ public class SuperHopperBlockEntity
 
     @Nullable
     private static Inventory getOutputInventory(World world, BlockPos pos, BlockState state) {
-        Direction direction = state.get(SuperHopperBlock.FACING);
-         return SuperHopperBlockEntity.getInventoryAt(world, pos.offset(direction));
+        Direction direction = state.get(SuperHopperT15Block.FACING);
+        return SuperHopperT15BlockEntity.getInventoryAt(world, pos.offset(direction));
     }
 
     @Nullable
     private static Inventory getInputInventory(World world, Hopper hopper) {
-         return SuperHopperBlockEntity.getInventoryAt(world, hopper.getHopperX(), hopper.getHopperY() + 1.0, hopper.getHopperZ());
+        return SuperHopperT15BlockEntity.getInventoryAt(world, hopper.getHopperX(), hopper.getHopperY() + 1.0, hopper.getHopperZ());
     }
 
     public static List<ItemEntity> getInputItemEntities(World world, Hopper hopper) {
@@ -322,7 +320,7 @@ public class SuperHopperBlockEntity
 
     @Nullable
     public static Inventory getInventoryAt(World world, BlockPos pos) {
-         return SuperHopperBlockEntity.getInventoryAt(world, (double)pos.getX() + 0.5, (double)pos.getY() + 0.5, (double)pos.getZ() + 0.5);
+        return SuperHopperT15BlockEntity.getInventoryAt(world, (double)pos.getX() + 0.5, (double)pos.getY() + 0.5, (double)pos.getZ() + 0.5);
     }
 
     @Nullable
@@ -394,9 +392,9 @@ public class SuperHopperBlockEntity
         this.inventory = list;
     }
 
-    public static void onEntityCollided(World world, BlockPos pos, BlockState state, Entity entity, SuperHopperBlockEntity blockEntity) {
+    public static void onEntityCollided(World world, BlockPos pos, BlockState state, Entity entity, SuperHopperT15BlockEntity blockEntity) {
         if (entity instanceof ItemEntity && VoxelShapes.matchesAnywhere(VoxelShapes.cuboid(entity.getBoundingBox().offset(-pos.getX(), -pos.getY(), -pos.getZ())), blockEntity.getInputAreaShape(), BooleanBiFunction.AND)) {
-            SuperHopperBlockEntity.insertAndExtract(world, pos, state, blockEntity, () -> SuperHopperBlockEntity.extract(blockEntity, (ItemEntity)entity));
+            SuperHopperT15BlockEntity.insertAndExtract(world, pos, state, blockEntity, () -> SuperHopperT15BlockEntity.extract(blockEntity, (ItemEntity)entity));
         }
     }
 
@@ -405,4 +403,3 @@ public class SuperHopperBlockEntity
         return new SuperHopperScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
     }
 }
-

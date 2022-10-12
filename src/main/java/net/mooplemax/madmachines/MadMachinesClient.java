@@ -10,6 +10,5 @@ public class MadMachinesClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         HandledScreens.register(ModScreenHandlers.SUPER_HOPPER_SCREEN_HANDLER, SuperHopperScreen::new);
-
     }
 }
