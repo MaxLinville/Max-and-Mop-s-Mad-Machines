@@ -30,7 +30,6 @@ public class SuperHopperScreen extends HandledScreen<SuperHopperScreenHandler>{
         RenderSystem.setShaderTexture(0, TEXTURE);
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
-        System.out.println(backgroundHeight);
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
     }
 

@@ -14,9 +14,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class ModBlocks {
-    /*public static final Block TANZANITE_BLOCK = registerBlock("tanzanite_block",
-            new Block(FabricBlockSettings.of(Material.METAL).strength(4f).requiresTool()), ModItemGroup.TANZANITE);*/
-
+    public static final Block COMPRESSED_IRON_BLOCK = registerBlock("compressed_iron_block.json",
+            new Block(FabricBlockSettings.of(Material.METAL).strength(4f).requiresTool().sounds(BlockSoundGroup.METAL)), ModItemGroup.AUTOMATION);
     public static final Block SUPER_HOPPER = registerBlock("super_hopper",
             new SuperHopperBlock(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
                     .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);
