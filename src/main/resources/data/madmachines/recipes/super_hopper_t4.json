@@ -10,7 +10,7 @@
       "item": "minecraft:iron_block"
     },
     "X": {
-      "item": "minecraft:redstone"
+      "item": "minecraft:redstone_block"
     },
     "A": {
       "item": "madmachines:super_hopper_t3"

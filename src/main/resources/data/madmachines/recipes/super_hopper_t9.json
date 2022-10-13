@@ -1,19 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "#X#",
+    "#S#",
     "XAX",
     "#X#"
   ],
   "key": {
     "#": {
-      "item": "minecraft:iron_block"
+      "item": "madmachines:silver_block"
     },
     "X": {
-      "item": "minecraft:redstone"
+      "item": "madmachines:titanium_ingot"
     },
     "A": {
       "item": "madmachines:super_hopper_t8"
+    },
+    "S": {
+      "item": "minecraft:diamond"
     }
   },
   "result": {

@@ -7,13 +7,12 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:iron_block"
+      "item": "minecraft:iron_ingot"
     },
     "X": {
       "item": "minecraft:redstone"
     },
     "A": {
-      "count": "8",
       "item": "minecraft:hopper"
     }
   },

@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "madmachines:block/double_compressed_redstone_block" }
+  }
+}

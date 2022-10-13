@@ -8,6 +8,11 @@
   "block.madmachines.platinum_ore": "Platinum Ore",
   "block.madmachines.deepslate_platinum_ore": "Deepslate Platinum Ore",
 
+  "block.madmachines.cobalt_block": "Block of Cobalt",
+  "block.madmachines.silver_block": "Block of Silver",
+  "block.madmachines.titanium_block": "Block of Titanium",
+  "block.madmachines.platinum_block": "Block of Platinum",
+
   "item.madmachines.raw_silver": "Raw Silver",
   "item.madmachines.silver_ingot": "Silver Ingot",
   "item.madmachines.raw_titanium": "Raw Titanium",
@@ -18,6 +23,9 @@
   "item.madmachines.cobalt_ingot": "Cobalt Ingot",
 
   "block.madmachines.compressed_iron_block": "Compressed Iron Block",
+  "block.madmachines.compressed_redstone_block": "Compressed Redstone Block",
+  "block.madmachines.double_compressed_redstone_block": "Double Compressed Redstone Block",
+  "block.madmachines.triple_compressed_redstone_block": "Triple Compressed Redstone Block",
 
   "block.madmachines.super_hopper": "Super Hopper",
   "block.madmachines.super_hopper_t2": "Super Hopper T2",

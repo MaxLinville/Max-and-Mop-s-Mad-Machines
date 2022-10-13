@@ -210,7 +210,6 @@ public class SuperHopperT15BlockEntity
     }
 
     private static boolean extract(Hopper hopper, Inventory inventory, int slot, Direction side, int amount) {
-        if (!(slot >= 10)) {
             ItemStack itemStack = inventory.getStack(slot);
             if (!itemStack.isEmpty() && SuperHopperT15BlockEntity.canExtract(inventory, itemStack, slot, side)) {
                 ItemStack itemStack2 = itemStack.copy();
@@ -221,7 +220,6 @@ public class SuperHopperT15BlockEntity
                 }
                 inventory.setStack(slot, itemStack2);
             }
-        }
         return false;
     }
 

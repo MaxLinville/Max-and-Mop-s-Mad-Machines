@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "madmachines:triple_compressed_redstone_block"
+        }
+      ]
+    }
+  ]
+}

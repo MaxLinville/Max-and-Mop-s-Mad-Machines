@@ -1,19 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "#X#",
+    "#S#",
     "XAX",
     "#X#"
   ],
   "key": {
     "#": {
-      "item": "minecraft:iron_block"
+      "item": "minecraft:netherite_ingot"
     },
     "X": {
-      "item": "minecraft:redstone"
+      "item": "madmachines:double_compressed_redstone_block"
     },
     "A": {
       "item": "madmachines:super_hopper_t13"
+    },
+    "S": {
+      "item": "madmachines:platinum_block"
     }
   },
   "result": {

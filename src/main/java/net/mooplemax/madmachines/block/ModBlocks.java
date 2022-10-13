@@ -32,7 +32,23 @@ public class ModBlocks {
     public static final Block DEEPSLATE_PLATINUM_ORE = registerBlock("deepslate_platinum_ore",
             new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3.0f, 4.8f).requiresTool(), UniformIntProvider.create(3, 7)), ModItemGroup.AUTOMATION);
 
+    public static final Block COBALT_BLOCK = registerBlock("cobalt_block",
+            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3.0f, 4.8f).requiresTool(), UniformIntProvider.create(3, 7)), ModItemGroup.AUTOMATION);
+    public static final Block SILVER_BLOCK = registerBlock("silver_block",
+            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3.0f, 4.8f).requiresTool(), UniformIntProvider.create(3, 7)), ModItemGroup.AUTOMATION);
+    public static final Block TITANIUM_BLOCK = registerBlock("titanium_block",
+            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3.0f, 4.8f).requiresTool(), UniformIntProvider.create(3, 7)), ModItemGroup.AUTOMATION);
+    public static final Block PLATINUM_BLOCK = registerBlock("platinum_block",
+            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3.0f, 4.8f).requiresTool(), UniformIntProvider.create(3, 7)), ModItemGroup.AUTOMATION);
+
+
     public static final Block COMPRESSED_IRON_BLOCK = registerBlock("compressed_iron_block",
+            new Block(FabricBlockSettings.of(Material.METAL).strength(4f).requiresTool().sounds(BlockSoundGroup.METAL)), ModItemGroup.AUTOMATION);
+    public static final Block COMPRESSED_REDSTONE_BLOCK = registerBlock("compressed_redstone_block",
+            new Block(FabricBlockSettings.of(Material.METAL).strength(4f).requiresTool().sounds(BlockSoundGroup.METAL)), ModItemGroup.AUTOMATION);
+    public static final Block DOUBLE_COMPRESSED_REDSTONE_BLOCK = registerBlock("double_compressed_redstone_block",
+            new Block(FabricBlockSettings.of(Material.METAL).strength(4f).requiresTool().sounds(BlockSoundGroup.METAL)), ModItemGroup.AUTOMATION);
+    public static final Block TRIPLE_COMPRESSED_REDSTONE_BLOCK = registerBlock("triple_compressed_redstone_block",
             new Block(FabricBlockSettings.of(Material.METAL).strength(4f).requiresTool().sounds(BlockSoundGroup.METAL)), ModItemGroup.AUTOMATION);
 
     public static final Block SUPER_HOPPER = registerBlock("super_hopper",
