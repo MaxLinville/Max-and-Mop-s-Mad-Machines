@@ -1,10 +1,36 @@
 package net.mooplemax.madmachines.world.feature;
 
+import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.world.gen.YOffset;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.*;
 
 import java.util.List;
 
 public class ModPlacedFeatures {
+    public static final RegistryEntry<PlacedFeature> SILVER_ORE_PLACED = PlacedFeatures.register("silver_ore_placed",
+            ModConfiguredFeatures.SILVER_ORE, modifiersWithCount(5,
+                    HeightRangePlacementModifier.trapezoid(YOffset.fixed(-80), YOffset.fixed(80))));
+    public static final RegistryEntry<PlacedFeature> COBALT_ORE_PLACED = PlacedFeatures.register("cobalt_ore_placed",
+            ModConfiguredFeatures.COBALT_ORE, modifiersWithCount(5,
+                    HeightRangePlacementModifier.trapezoid(YOffset.fixed(-80), YOffset.fixed(80))));
+    public static final RegistryEntry<PlacedFeature> TITANIUM_ORE_PLACED = PlacedFeatures.register("titanium_ore_placed",
+            ModConfiguredFeatures.TITANIUM_ORE, modifiersWithCount(5,
+                    HeightRangePlacementModifier.trapezoid(YOffset.fixed(-80), YOffset.fixed(80))));
+    public static final RegistryEntry<PlacedFeature> PLATINUM_ORE_PLACED = PlacedFeatures.register("platinum_ore_placed",
+            ModConfiguredFeatures.PLATINUM_ORE, modifiersWithCount(5,
+                    HeightRangePlacementModifier.trapezoid(YOffset.fixed(-80), YOffset.fixed(80))));
+
+    /*public static final RegistryEntry<PlacedFeature> NETHER_XXXXX_ORE_PLACED = PlacedFeatures.register("nether_XXXXX_ore_placed",
+            ModConfiguredFeatures.NETHER_XXXXX_ORE, modifiersWithCount(10,
+                    HeightRangePlacementModifier.uniform(YOffset.fixed(-80), YOffset.fixed(80))));
+
+    public static final RegistryEntry<PlacedFeature> END_XXXXXX_ORE_PLACED = PlacedFeatures.register("end_XXXXX_ore_placed",
+            ModConfiguredFeatures.END_XXXXX_ORE, modifiersWithCount(10,
+                    HeightRangePlacementModifier.uniform(YOffset.fixed(-80), YOffset.fixed(80))));*/
+
+
+
     private static List<PlacementModifier> modifiers(PlacementModifier countModifier, PlacementModifier heightModifier) {
         return List.of(countModifier, SquarePlacementModifier.of(), heightModifier, BiomePlacementModifier.of());
     }

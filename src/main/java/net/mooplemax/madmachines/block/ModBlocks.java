@@ -2,6 +2,7 @@ package net.mooplemax.madmachines.block;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.mooplemax.madmachines.MadMachines;
 import net.mooplemax.madmachines.block.custom.*;
 import net.mooplemax.madmachines.item.ModItemGroup;
@@ -14,8 +15,26 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class ModBlocks {
-    public static final Block COMPRESSED_IRON_BLOCK = registerBlock("compressed_iron_block.json",
+    public static final Block SILVER_ORE = registerBlock("silver_ore",
+            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3.0f, 4.8f).requiresTool(), UniformIntProvider.create(3, 7)), ModItemGroup.AUTOMATION);
+    public static final Block DEEPSLATE_SILVER_ORE = registerBlock("deepslate_silver_ore",
+            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3.0f, 4.8f).requiresTool(), UniformIntProvider.create(3, 7)), ModItemGroup.AUTOMATION);
+    public static final Block COBALT_ORE = registerBlock("cobalt_ore",
+            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3.0f, 4.8f).requiresTool(), UniformIntProvider.create(3, 7)), ModItemGroup.AUTOMATION);
+    public static final Block DEEPSLATE_COBALT_ORE = registerBlock("deepslate_cobalt_ore",
+            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3.0f, 4.8f).requiresTool(), UniformIntProvider.create(3, 7)), ModItemGroup.AUTOMATION);
+    public static final Block TITANIUM_ORE = registerBlock("titanium_ore",
+            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3.0f, 4.8f).requiresTool(), UniformIntProvider.create(3, 7)), ModItemGroup.AUTOMATION);
+    public static final Block DEEPSLATE_TITANIUM_ORE = registerBlock("deepslate_titanium_ore",
+            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3.0f, 4.8f).requiresTool(), UniformIntProvider.create(3, 7)), ModItemGroup.AUTOMATION);
+    public static final Block PLATINUM_ORE = registerBlock("platinum_ore",
+            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3.0f, 4.8f).requiresTool(), UniformIntProvider.create(3, 7)), ModItemGroup.AUTOMATION);
+    public static final Block DEEPSLATE_PLATINUM_ORE = registerBlock("deepslate_platinum_ore",
+            new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3.0f, 4.8f).requiresTool(), UniformIntProvider.create(3, 7)), ModItemGroup.AUTOMATION);
+
+    public static final Block COMPRESSED_IRON_BLOCK = registerBlock("compressed_iron_block",
             new Block(FabricBlockSettings.of(Material.METAL).strength(4f).requiresTool().sounds(BlockSoundGroup.METAL)), ModItemGroup.AUTOMATION);
+
     public static final Block SUPER_HOPPER = registerBlock("super_hopper",
             new SuperHopperBlock(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
                     .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);

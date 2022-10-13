@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 250,
+  "experience": 1,
+  "group": "automation",
+  "ingredient": {
+    "item": "madmachines:raw_titanium"
+  },
+  "result": "madmachines:titanium_ingot"
+}

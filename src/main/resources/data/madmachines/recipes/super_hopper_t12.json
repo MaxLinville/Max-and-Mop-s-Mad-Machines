@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#X#",
+    "XAX",
+    "#X#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_block"
+    },
+    "X": {
+      "item": "minecraft:redstone"
+    },
+    "A": {
+      "item": "madmachines:super_hopper_t11"
+    }
+  },
+  "result": {
+    "item": "madmachines:super_hopper_t12"
+  }
+}

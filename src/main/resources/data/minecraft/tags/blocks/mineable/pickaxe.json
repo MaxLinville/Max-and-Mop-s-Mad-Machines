@@ -1,6 +1,15 @@
 {
   "replace": false,
   "values": [
+    "madmachines:silver_ore",
+    "madmachines:deepslate_silver_ore",
+    "madmachines:cobalt_ore",
+    "madmachines:deepslate_cobalt_ore",
+    "madmachines:titanium_ore",
+    "madmachines:deepslate_titanium_ore",
+    "madmachines:platinum_ore",
+    "madmachines:deepslate_platinum_ore",
+
     "madmachines:compressed_iron_block"
   ]
 }

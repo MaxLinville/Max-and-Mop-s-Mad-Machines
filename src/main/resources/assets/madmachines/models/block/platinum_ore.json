@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "madmachines:block/compressed_iron_block"
+    "all": "madmachines:block/platinum_ore"
   }
 }

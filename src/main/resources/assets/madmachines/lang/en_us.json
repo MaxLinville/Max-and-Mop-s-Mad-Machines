@@ -1,5 +1,24 @@
 {
+  "block.madmachines.silver_ore": "Silver Ore",
+  "block.madmachines.deepslate_silver_ore": "Deepslate Silver Ore",
+  "block.madmachines.cobalt_ore": "Cobalt Ore",
+  "block.madmachines.deepslate_cobalt_ore": "Deepslate Cobalt Ore",
+  "block.madmachines.titanium_ore": "Titanium Ore",
+  "block.madmachines.deepslate_titanium_ore": "Deepslate Titanium Ore",
+  "block.madmachines.platinum_ore": "Platinum Ore",
+  "block.madmachines.deepslate_platinum_ore": "Deepslate Platinum Ore",
+
+  "item.madmachines.raw_silver": "Raw Silver",
+  "item.madmachines.silver_ingot": "Silver Ingot",
+  "item.madmachines.raw_titanium": "Raw Titanium",
+  "item.madmachines.titanium_ingot": "Titanium Ingot",
+  "item.madmachines.raw_platinum": "Raw Platinum",
+  "item.madmachines.platinum_ingot": "Platinum Ingot",
+  "item.madmachines.raw_cobalt": "Raw Cobalt",
+  "item.madmachines.cobalt_ingot": "Cobalt Ingot",
+
   "block.madmachines.compressed_iron_block": "Compressed Iron Block",
+
   "block.madmachines.super_hopper": "Super Hopper",
   "block.madmachines.super_hopper_t2": "Super Hopper T2",
   "block.madmachines.super_hopper_t3": "Super Hopper T3",
