@@ -13,11 +13,9 @@
     "madmachines:cobalt_block",
     "madmachines:titanium_block",
     "madmachines:platinum_block",
-
     "madmachines:compressed_redstone_block",
-    "madmachines:double_comrpessed_redstone_block",
+    "madmachines:double_compressed_redstone_block",
     "madmachines:triple_compressed_redstone_block",
-
     "madmachines:compressed_iron_block"
   ]
 }

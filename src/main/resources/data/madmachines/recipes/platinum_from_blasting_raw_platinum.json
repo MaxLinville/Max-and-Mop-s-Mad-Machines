@@ -1,6 +1,6 @@
 {
   "type": "minecraft:blasting",
-  "cookingtime": 500,
+  "cookingtime": 400,
   "experience": 3,
   "group": "automation",
   "ingredient": {
