@@ -11,11 +11,11 @@ public class ModPlacedFeatures {
     public static final RegistryEntry<PlacedFeature> SILVER_ORE_PLACED = PlacedFeatures.register("silver_ore_placed",
             ModConfiguredFeatures.SILVER_ORE, modifiersWithCount(4, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-64), YOffset.fixed(32))));
     public static final RegistryEntry<PlacedFeature> COBALT_ORE_PLACED = PlacedFeatures.register("cobalt_ore_placed",
-            ModConfiguredFeatures.COBALT_ORE, modifiersWithCount(10, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-24), YOffset.fixed(56))));
+            ModConfiguredFeatures.COBALT_ORE, modifiersWithCount(5, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-24), YOffset.fixed(56))));
     public static final RegistryEntry<PlacedFeature> TITANIUM_ORE_PLACED = PlacedFeatures.register("titanium_ore_placed",
             ModConfiguredFeatures.TITANIUM_ORE, modifiersWithCount(3, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-80), YOffset.fixed(80))));
     public static final RegistryEntry<PlacedFeature> PLATINUM_ORE_PLACED = PlacedFeatures.register("platinum_ore_placed",
-            ModConfiguredFeatures.PLATINUM_ORE, modifiersWithCount(2, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-80), YOffset.fixed(80))));
+            ModConfiguredFeatures.PLATINUM_ORE, modifiersWithCount(3, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-80), YOffset.fixed(80))));
 
     /*ORE_IRON_UPPER = PlacedFeatures.register("ore_iron_upper", OreConfiguredFeatures.ORE_IRON, modifiersWithCount(90, HeightRangePlacementModifier.trapezoid(YOffset.fixed(80), YOffset.fixed(384))));
     ORE_IRON_MIDDLE = PlacedFeatures.register("ore_iron_middle", OreConfiguredFeatures.ORE_IRON, modifiersWithCount(10, HeightRangePlacementModifier.trapezoid(YOffset.fixed(-24), YOffset.fixed(56))));

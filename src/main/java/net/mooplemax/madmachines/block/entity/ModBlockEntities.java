@@ -7,7 +7,10 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+import javax.imageio.spi.RegisterableService;
+
 public class ModBlockEntities {
+    public static BlockEntityType<SuperFurnaceBlockEntity> SUPER_FURNACE;
     public static BlockEntityType<SuperHopperBlockEntity> SUPER_HOPPER;
     public static BlockEntityType<SuperHopperT2BlockEntity> SUPER_HOPPER_T2;
     public static BlockEntityType<SuperHopperT3BlockEntity> SUPER_HOPPER_T3;
@@ -26,6 +29,10 @@ public class ModBlockEntities {
 
 
     public static void registerBlockEntities() {
+
+        SUPER_FURNACE = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(MadMachines.MOD_ID, "super_furnace"),
+                FabricBlockEntityTypeBuilder.create(SuperFurnaceBlockEntity::new,
+                    ModBlocks.SUPER_FURNACE).build(null));
 
         SUPER_HOPPER = Registry.register(Registry.BLOCK_ENTITY_TYPE,
                 new Identifier(MadMachines.MOD_ID, "super_hopper"),

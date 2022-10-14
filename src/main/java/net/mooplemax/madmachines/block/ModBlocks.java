@@ -51,6 +51,10 @@ public class ModBlocks {
     public static final Block TRIPLE_COMPRESSED_REDSTONE_BLOCK = registerBlock("triple_compressed_redstone_block",
             new Block(FabricBlockSettings.of(Material.METAL).strength(4f).requiresTool().sounds(BlockSoundGroup.METAL)), ModItemGroup.AUTOMATION);
 
+    public static final Block SUPER_FURNACE = registerBlock("super_furnace",
+            new SuperHopperBlock(FabricBlockSettings.of(Material.STONE, MapColor.STONE_GRAY)
+                    .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.STONE)), ModItemGroup.AUTOMATION);
+
     public static final Block SUPER_HOPPER = registerBlock("super_hopper",
             new SuperHopperBlock(FabricBlockSettings.of(Material.METAL, MapColor.STONE_GRAY)
                     .requiresTool().strength(3.0f, 4.8f).sounds(BlockSoundGroup.METAL).nonOpaque()), ModItemGroup.AUTOMATION);

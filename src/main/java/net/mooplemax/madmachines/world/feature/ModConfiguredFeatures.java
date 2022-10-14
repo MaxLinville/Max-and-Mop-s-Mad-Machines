@@ -38,7 +38,7 @@ public class ModConfiguredFeatures {
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> TITANIUM_ORE =
             ConfiguredFeatures.register("titanium_ore", Feature.ORE, new OreFeatureConfig(OVERWORLD_TITANIUM_ORES, 3)); //size = maximum vein size
     public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> PLATINUM_ORE =
-            ConfiguredFeatures.register("platinum_ore", Feature.ORE, new OreFeatureConfig(OVERWORLD_PLATINUM_ORES, 2, 1.0F)); //size = maximum vein size
+            ConfiguredFeatures.register("platinum_ore", Feature.ORE, new OreFeatureConfig(OVERWORLD_PLATINUM_ORES, 3, 1.0F)); //size = maximum vein size
 
     /*public static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> NETHER_XXXX_ORE =
             ConfiguredFeatures.register("nether_tanzanite_ore",Feature.ORE, new OreFeatureConfig(NETHER_XXXXX_ORES, 12));
